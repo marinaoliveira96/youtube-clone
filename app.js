@@ -11,14 +11,15 @@ import routes from './routes';
 const app = express();
 
 //middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); //está ligado com autenticação
+app.use(bodyParser.urlencoded({ extended: true })); //o que o usuário esta enviando
 app.use(cookieParser());
-app.use(morgan('dev')); // log das coisas do browser
-app.use(helmet());
+app.use(morgan('dev')); // log das coisas do browser e da aplicação
+app.use(helmet()); // segurança
 
-// para uma rota usamos use
-app.use(routes.home, globalRouter);
+// para as rotas usamos use
+app.set('view engine', 'pug');
+app.use(routes.home, globalRouter); // global route = home, login etc
 app.use(routes.users, useRouter);
 app.use(routes.videos, videoRouter);
 
