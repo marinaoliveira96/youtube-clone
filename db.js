@@ -5,7 +5,7 @@ export const videos = [
     description: 'video qualquer',
     views: 24,
     videoFile:
-      'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
+      'https://ia800300.us.archive.org/17/items/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
     creator: {
       id: 90909,
       name: 'Marina',
