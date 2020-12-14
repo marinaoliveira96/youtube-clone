@@ -1,5 +1,9 @@
 # Clone do YouTube com NodeJS e VanillaJS
 
+<h2 align="center"> 
+	🚧  Em construção...  🚧
+</h2>
+
 ## Backend
 
 - MVC Pattern (Model-View-Controller)

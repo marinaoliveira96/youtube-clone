@@ -19,7 +19,12 @@ export const postJoin = (req, res) => {
   }
 };
 
-export const login = (req, res) => res.render('login', { pageTitle: 'Login' });
+export const getLogin = (req, res) =>
+  res.render('login', { pageTitle: 'Login' });
+export const postLogin = (req, res) => {
+  // check if user is in database
+  res.redirect(routes.home);
+};
 
 export const logout = (req, res) =>
   res.render('logout', { pageTitle: 'Logout' });
