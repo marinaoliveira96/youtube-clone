@@ -24,6 +24,9 @@ video: {
   },
 ```
 
+- Async/Await
+- Usar o try/catch
+
 ### Pages:
 
 - [ ] Home
