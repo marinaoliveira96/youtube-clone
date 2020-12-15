@@ -11,9 +11,18 @@
   Esta parte será feita com o Pugjs (view engine para o express) e vamos modificar as configurações do express no app.set(). O pug vai renderizar uma página com template html
 - Locals : res.locals cria variáveis global que podemos usar no template
 
-- MongoDB
+### MongoDB
+
 - Models: Models são criados do schema usando o método mongoose.model()
 - Schema: A document schema is a JSON object that allows you to define the shape and content of documents
+- Relacionamentos: Exemplo de relacionamento entre um comentário e um vídeo
+
+```javascript
+video: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Video',
+  },
+```
 
 ### Pages:
 

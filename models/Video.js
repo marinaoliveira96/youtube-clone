@@ -19,6 +19,12 @@ const VideoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  coments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Comment',
+    },
+  ],
 });
 
 //document shape
