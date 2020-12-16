@@ -4,6 +4,19 @@
 	🚧  Em construção...  🚧
 </h2>
 
+### Pages:
+
+- [ ] Home
+- [x] Join
+- [x] Login
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
+
 ## Backend
 
 - MVC Pattern (Model-View-Controller)
@@ -26,16 +39,4 @@ video: {
 
 - Async/Await
 - Usar o try/catch
-
-### Pages:
-
-- [ ] Home
-- [x] Join
-- [x] Login
-- [x] Search
-- [ ] User Detail
-- [ ] Edit Profile
-- [ ] Change Password
-- [ ] Upload
-- [ ] Video Detail
-- [ ] Edit Video
+- Multer Middleware
