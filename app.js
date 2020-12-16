@@ -14,6 +14,7 @@ const app = express();
 //middlewares
 app.use(helmet()); // segurança
 app.set('view engine', 'pug');
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.json()); //está ligado com autenticação
 app.use(bodyParser.urlencoded({ extended: true })); //o que o usuário esta enviando
 app.use(cookieParser());
