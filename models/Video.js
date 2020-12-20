@@ -19,7 +19,7 @@ const VideoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  coments: [
+  comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Comment',
@@ -27,7 +27,7 @@ const VideoSchema = new mongoose.Schema({
   ],
 });
 
-//document shape
+//  document shape
 const model = mongoose.model('Video', VideoSchema);
 
 export default model;

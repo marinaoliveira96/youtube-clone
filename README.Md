@@ -37,6 +37,9 @@ video: {
   },
 ```
 
+- Babel
 - Async/Await
 - Usar o try/catch
 - Multer Middleware
+- ESLint - checar o código e acusar os erros
+- Webpack
