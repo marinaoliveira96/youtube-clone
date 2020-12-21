@@ -1,34 +1,65 @@
 const path = require('path');
-const ExtractCSS = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, 'assets', 'js', 'main.js');
 const OUTPUT_DIR = path.join(__dirname, 'static');
 
 const config = {
-  entry: ENTRY_FILE,
+  entry: ['@babel/polyfill', ENTRY_FILE],
   mode: MODE,
-  modeule: {
-    // regras apra o webpack
+  module: {
     rules: [
       {
-        // procurar scss e usar um loader
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
+      },
+      {
         test: /\.(scss)$/,
-        use: ExtractCSS.extract([
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: 'css-loader',
           },
           {
             loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // options
+                      overrideBrowserslist: 'cover 99.5%',
+                    },
+                  ],
+                ],
+              },
+            },
           },
           {
             loader: 'sass-loader',
           },
-        ]),
+        ],
       },
     ],
   },
-  output: { path: OUTPUT_DIR, filename: '[name].[format]' },
+  output: {
+    path: OUTPUT_DIR,
+    filename: '[name].js',
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+  ],
 };
 
-module.export = config;
+module.exports = config;
