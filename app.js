@@ -3,11 +3,14 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import passport from 'passport';
 import useRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
 import globalRouter from './routers/globalRouter';
 import routes from './routes';
 import { localsMiddleware } from './middlewares';
+
+import './passport';
 
 const app = express();
 
@@ -20,9 +23,10 @@ app.use(bodyParser.json()); // está ligado com autenticação
 app.use(bodyParser.urlencoded({ extended: true })); // o que o usuário esta enviando
 app.use(cookieParser());
 app.use(morgan('dev')); // log das coisas do browser e da aplicação
+app.use(passport.initialize());
+app.use(passport.session());
 
 // create global variables for the app
-
 app.use(localsMiddleware);
 
 // para as rotas usamos use
