@@ -43,3 +43,5 @@ video: {
 - Multer Middleware
 - ESLint: checar o código e acusar os erros
 - Webpack: loaders para sccs, sass => colocar no main.pug o link para o css e o script
+- Passportjs: lida com autenticação
+- Boas práticas no uso de cookies
