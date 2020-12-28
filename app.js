@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import passport from 'passport';
+import session from 'express-session';
 import useRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
 import globalRouter from './routers/globalRouter';
@@ -23,6 +24,13 @@ app.use(bodyParser.json()); // está ligado com autenticação
 app.use(bodyParser.urlencoded({ extended: true })); // o que o usuário esta enviando
 app.use(cookieParser());
 app.use(morgan('dev')); // log das coisas do browser e da aplicação
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 

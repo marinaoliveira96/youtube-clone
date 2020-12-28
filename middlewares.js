@@ -6,7 +6,7 @@ const multerVideo = multer({ dest: 'uploads/videos/' });
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = 'MaTube';
   res.locals.routes = routes;
-  res.locals.user = req.user || {}; // se n existe será um obj vazio
+  res.locals.user = req.user || null; // se n existe será um obj vazio
   next();
 };
 

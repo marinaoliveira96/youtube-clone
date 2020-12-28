@@ -6,7 +6,6 @@ export const getJoin = (req, res) => {
   res.render('join', { pageTitle: 'Join' });
 };
 
-// agr é um middleware
 export const postJoin = async (req, res, next) => {
   const {
     body: { name, email, password, password2 },
@@ -16,6 +15,8 @@ export const postJoin = async (req, res, next) => {
     res.render('join', { pageTitle: 'Join' });
   } else {
     try {
+      // passport.authenticate = procura pelo email e password
+
       const user = await User({
         name,
         email,
@@ -30,24 +31,21 @@ export const postJoin = async (req, res, next) => {
 };
 
 export const getLogin = (req, res) =>
-  res.render('login', { pageTitle: 'Login' });
+  res.render('login', { pageTitle: 'Log In' });
 
-// passport.authenticate = procura pelo email e password
 export const postLogin = passport.authenticate('local', {
   failureRedirect: routes.login,
   successRedirect: routes.home,
 });
 
 export const logout = (req, res) => {
-  // process logout
+  // To Do: Process Log Out
   res.redirect(routes.home);
 };
 
 export const userDetail = (req, res) =>
   res.render('userDetail', { pageTitle: 'User Detail' });
-
 export const editProfile = (req, res) =>
   res.render('editProfile', { pageTitle: 'Edit Profile' });
-
 export const changePassword = (req, res) =>
   res.render('changePassword', { pageTitle: 'Change Password' });
